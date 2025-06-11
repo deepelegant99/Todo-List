@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Flask
+instance/
+.webassets-cache
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.flaskenv
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Local development settings
+*.db
+*.sqlite3
