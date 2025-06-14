@@ -3,9 +3,18 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/hello")
 def home():
-    name = request.args["name"]
+    # name = request.args["name"]
+
+    # A better version of the above code:
+    # if "name" in request.args:
+    #     name = request.args["name"]
+    # else:
+    #     name = "World"
+    # The best version of the above code:
+    name = request.args.get("name", "World")
+
     return render_template("index.html", name=name)
 
 if __name__ == "__main__":
