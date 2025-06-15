@@ -6,6 +6,16 @@
     <title>Document</title>
   </head>
   <body>
-    Hello {{name}}!
+    <form action="/hello" method="GET">
+      <input
+        type="text"
+        name="name"
+        autocomplete="off"
+        autofocus
+        placeholder="Enter your name"
+      />
+
+      <button type="submit">Submit</button>
+    </form>
   </body>
 </html>
