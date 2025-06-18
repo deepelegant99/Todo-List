@@ -20,6 +20,7 @@ def home():
 @app.route("/hello")
 def greet():
     name = request.args.get("name", "World")
+    print(request.args)
     return f"Hello, {name}!"
 
 if __name__ == "__main__":
