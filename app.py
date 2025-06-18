@@ -13,17 +13,18 @@ def home():
     # else:
     #     name = "World"
     # The best version of the above code:
-    name = request.args.get("name", "World")
-    age = request.args.get("age", 0)
-    return render_template("index.html", name=name, age=age)
+
+    # The / route should render index.html
+    return render_template("index.html")
 
 
 @app.route("/hello")
 def greet():
     name = request.args.get("name", "World")
     age = request.args.get("age", 0)
-    print(request.args)
-    return f"Hello, {name}! You are {age} years old."
+    
+    # return f"Hello, {name}! You are {age} years old."
+    return render_template("hello.html", name=name, age=age)
 
 if __name__ == "__main__":
     app.run(debug=True)
