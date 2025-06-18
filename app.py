@@ -23,7 +23,6 @@ def greet():
     name = request.args.get("name", "World")
     age = request.args.get("age", 0)
     
-    # return f"Hello, {name}! You are {age} years old."
     return render_template("hello.html", name=name, age=age)
 
 if __name__ == "__main__":
