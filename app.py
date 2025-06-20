@@ -17,11 +17,13 @@ def home():
     # The / route should render index.html
     return render_template("index.html")
 
-
-@app.route("/hello")
+# @app.route("/hello", methods=["GET"])
+@app.route("/hello", methods=["POST"])
 def greet():
-    name = request.args.get("name", "World")
-    age = request.args.get("age", 0)
+    # name = request.args.get("name", "World")
+    # age = request.args.get("age", 0)
+    name = request.form.get("name", "World")
+    age = request.form.get("age", 0)
     
     return render_template("hello.html", name=name, age=age)
 
