@@ -18,12 +18,19 @@ def home():
     return render_template("index.html")
 
 # @app.route("/hello", methods=["GET"])
-@app.route("/hello", methods=["POST"])
+@app.route("/hello", methods=["GET","POST"])
 def greet():
-    # name = request.args.get("name", "World")
-    # age = request.args.get("age", 0)
-    name = request.form.get("name", "World")
-    age = request.form.get("age", 0)
+
+    if request.method == "GET":
+        # For GET requests, we can use request.args
+        name = request.args.get("name", "World")
+        age = request.args.get("age", 0)
+        print(f"GET request: name={name}, age={age}")
+    else:
+        # For POST requests, we can use request.form
+        name = request.form.get("name", "World")
+        age = request.form.get("age", 0)
+        print(f"POST request: name={name}, age={age}")
     
     return render_template("hello.html", name=name, age=age)
 
