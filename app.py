@@ -22,17 +22,15 @@ def home():
 def greet():
 
     if request.method == "GET":
-        # For GET requests, we can use request.args
-        name = request.args.get("name", "World")
-        age = request.args.get("age", 0)
-        print(f"GET request: name={name}, age={age}")
+        # For GET requests, we can use request.args 
+        print(f"GET request")
+        return render_template("hello.html", name=request.args.get("name"), age=request.args.get("age"))
     else:
-        # For POST requests, we can use request.form
-        name = request.form.get("name", "World")
-        age = request.form.get("age", 0)
-        print(f"POST request: name={name}, age={age}")
+        # For POST requests 
+        print(f"POST request")
+        return render_template("hello.html", name=request.form.get("name"), age=request.form.get("age"))
     
-    return render_template("hello.html", name=name, age=age)
+   # return render_template("hello.html", name=name, age=age)
 
 if __name__ == "__main__":
     app.run(debug=True)
